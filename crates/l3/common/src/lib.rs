@@ -1,4 +1,5 @@
 pub mod errors;
+pub mod model;
 use starknet_accounts::{Account, Call, ConnectedAccount, Execution, SingleOwnerAccount};
 use starknet_core::types::{BlockId, BlockTag, FunctionCall};
 use starknet_ff::FieldElement;
