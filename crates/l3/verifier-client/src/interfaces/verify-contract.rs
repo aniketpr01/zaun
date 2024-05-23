@@ -18,11 +18,9 @@ impl VerifyContract {
 
     pub fn verify_and_register_fact(
         &self,
-        stark_proof: StarkProofWithSerde,
+        serialized_proof: Vec<FieldElement>,
     ) -> Result<Execution<LocalWalletSignerMiddleware>> {
-        let mut calldata = Vec::new();
-        calldata.extend(stark_proof.serialize());
-        invoke_contract(&self.client, self.address, "verify_and_register_fact", calldata).await
+        invoke_contract(&self.client, self.address, "verify_and_register_fact", serialized_proof).await
     }
 
     pub fn verify_and_register_fact_from_contract(
